@@ -73,12 +73,11 @@
         }
     },
     "variables": {
-        "groupSuffix": "[substring(uniquestring(resourceGroup().id),0,5)]",
-        "functionsiteName": "[concat(parameters('siteName'), variables('groupSuffix'))]",
-        "hostingPlanName": "[concat(parameters('siteName'), variables('groupSuffix'))]",
-        "storageAccountName": "[concat(parameters('storageAcctName'), variables('groupSuffix'))]",
+        "functionsiteName": "parameters('siteName')",
+        "hostingPlanName": "[concat(parameters('siteName'), 'hosting')]",
+        "storageAccountName": "[parameters('storageAcctName')]",
         "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
-        "serviceBusName": "[concat(parameters('serviceBusNamespaceName'), variables('groupSuffix'))]",
+        "serviceBusName": "[parameters('serviceBusNamespaceName')]",
         "sbVersion": "2015-08-01"
     },
     "resources": [{
